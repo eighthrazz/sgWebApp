@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+	    $(window).load(function() {
+	    	var root = location.protocol + '//' + location.host;
+	        console.log("root="+root);
+	        
+	        $("#demo").append('<img src="/photo"  />');
+	    });
+    </script>
+</head>
+<body>
+    <p th:text="'Hello, ' + ${name} + '!'" />
+    
+    <p id="demo"></p>
+    
+</body>
+</html>

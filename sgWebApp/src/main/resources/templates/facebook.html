@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/facebook.css" />
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<title>SG Facebook</title>
+</head>
+<body>
+
+    <div class="facebook">
+        <div class="panel-group">
+            <div class="facebook-post panel panel-default" th:each="fbPost:${fbPostList}">
+                <div class="facebook-post-date facebook-post-font panel-heading" th:text="${#dates.format(fbPost.date, 'MMM dd')}"></div>
+                <div class="panel-body">
+                    <div class="facebook-post-image">
+                        <img th:if="${fbPost.imageUrl}" th:src="${fbPost.imageUrl}" />
+                    </div>
+                    <div class="facebook-post-message facebook-post-font" th:text="${fbPost.message}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

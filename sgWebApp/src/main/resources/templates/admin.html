@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            //
+            (function worker() {
+                $.get('/admin/log', function(data) {
+                  // Now that we've completed the request schedule the next one.
+                  //$('#log').html(data);
+                  console.log(data);
+                  $("#log").val(data);
+                  setTimeout(worker, 5000);
+                });
+            })();
+        
+            //
+            $("#reloadDatabase").click(function() {
+                $.get('/admin/reloadDatabase');
+            });   
+        });
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="page-header">
+            <h1>Admin</h1>
+        </header>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <button type="button" class="btn btn-warning" id="reloadDatabase">Reload Database</button>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-12">
+                <textarea id="log" rows="12" cols="50"></textarea>
+            </div> 
+        </div>
+    </div>    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="ISO-8859-1" />
+<link rel="stylesheet" type="text/css" href="css/songs.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css" />
+<script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-table.js"></script>
+<script type="text/javascript" src="js/songs.js"></script>
+<title>Songs</title>
+</head>
+<body>
+	
+	<div class="container-fluid">
+		<table id="example" class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Count</th>
+					<th>Rank</th>
+					<th>First Played</th>
+					<th>Last Played</th>
+				</tr>
+			</thead>
+			<tfoot>
+	            <tr>
+	                <th>Name</th>
+					<th>Count</th>
+					<th>Rank</th>
+	            </tr>
+	        </tfoot>
+			<tbody>
+				<tr th:each="songStat : ${songStats}"> 
+					<td th:text="${songStat.song.name}"></td>
+					<td th:text="${songStat.count}"></td>
+					<td th:text="${songStat.rank}"></td>
+					<td	th:text="${#dates.format(songStat.firstDtg, 'MM/dd/yyyy')}"></td>
+					<td	th:text="${#dates.format(songStat.lastDtg, 'MM/dd/yyyy')}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</body>
+</html>

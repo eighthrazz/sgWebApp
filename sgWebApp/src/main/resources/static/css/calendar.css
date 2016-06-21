@@ -1,0 +1,39 @@
+@CHARSET "ISO-8859-1";
+
+@import url(https://fonts.googleapis.com/css?family=Quantico);
+
+.calendar-table {
+     background-color: rgba(192, 192, 192, .4);    
+}
+
+.calendar-table-header {
+    font-family: 'Quantico', sans-serif;
+    color: white;
+    font-size: 1.5em;
+}
+
+.table th {
+    text-align: center;
+}
+
+.calendar-table-body {
+    font-family: 'Quantico', sans-serif;
+    color: white;
+    font-size: 1.3em;
+}
+
+.venue-location:link {
+    color: white; 
+} 
+
+.venue-location:visited {
+    color: white; 
+} 
+
+.venue-location:hover {
+    color: blue; 
+} 
+
+.venue-location:active {
+    color: white; 
+} 

@@ -1,0 +1,56 @@
+#block {
+	clear: left;
+}
+
+#flyer {
+	float: left;        
+}
+
+#picture {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 500px;
+}
+
+#name {
+	font-size:300%;	
+}
+
+#date {
+	font-size:150%;		
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table, th, td {
+	border: 0px solid black;	
+}
+
+#songLink {
+	font-size:150%;	
+	color:white;
+}
+
+.thumbnail {
+    position:relative;
+    overflow:hidden;
+}
+ 
+.caption {
+    position:absolute;
+    top:0;
+    right:0;
+    background:rgba(90, 90, 90, 0.75);
+    width:100%;
+    height:100%;
+    padding:2%;
+    display: none;
+    text-align: left;
+    color:#fff !important;
+    z-index:2;
+    overflow-y:auto;
+}
+

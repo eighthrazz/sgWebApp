@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/homeOld.css" />
+<link rel="stylesheet" type="text/css" href="css/calendar.css" />
+<link rel="stylesheet" type="text/css" href="css/news.css" />
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/homeOld.js"></script>
+<script th:inline="javascript">
+$(document).ready(function() {
+/*<![CDATA[*/
+    //
+    var backgroundImage = [[${home.backgroundImage}]]; 
+    background.init([backgroundImage]);
+    background.set();
+    
+    //
+    ready();
+/*]]>*/
+});
+</script>
+<title>Satchel Grande</title>
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <div class="navbar-default navbar-static-top header">
+        <div class="container-fluid">
+            <div class="sg-font">SATCHEL GRANDE</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="homeNews docFill"></div>
+            </div>
+            <div class="col-lg-4">
+                <div class="homeCalendar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar-fixed-bottom footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8"></div>
+                <div class="col-lg-4">
+                    <button type="button" class="btn-lg btn-info btn-facebook"
+                        th:onclick="'window.open(\'' +${home.facebookUrl}+ '\');'">
+                        <img src="img/facebook-64.png" />
+                    </button>
+                    <button type="button" class="btn-lg btn-info btn-twitter"
+                        th:onclick="'window.open(\'' +${home.twitterUrl}+ '\');'">
+                        <img src="img/twitter-64.png" />
+                    </button>
+                    <button type="button" class="btn-lg btn-info btn-youtube"
+                        th:onclick="'window.open(\'' +${home.youTubeUrl}+ '\');'">
+                        <img src="img/youtube-64.png" />
+                    </button>
+                    <button type="button" class="btn-lg btn-info btn-email">
+                        <img src="img/email-64.png" />
+                    </button>
+                    <button type="button" class="btn-lg btn-info btn-play"
+                        th:onclick="'window.open(\'' +${home.googlePlayUrl}+ '\');'">
+                        <img src="img/play-64.png" />
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

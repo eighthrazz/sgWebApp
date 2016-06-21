@@ -1,0 +1,16 @@
+@CHARSET "ISO-8859-1";
+
+@import url(https://fonts.googleapis.com/css?family=Quantico);
+
+.news {
+    overflow: auto;
+    width: auto;
+    height: 100%;
+    background-color: rgba(192, 192, 192, .6);   
+}
+
+.news-font {
+    font-family: 'Quantico', sans-serif;
+    color: black;
+    font-size: 1.3em;
+}

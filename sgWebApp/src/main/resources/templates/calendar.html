@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/calendar.css" />
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<title>Calendar</title>
+</head>
+
+<body>
+    <div class="calendar">
+        <table class="table calendar-table calendar-table-font">
+            <thead class="calendar-table-header">
+                <tr>
+                    <th colspan="2">Upcoming Shows</th>
+                </tr>
+            </thead>
+            <tbody class="calendar-table-body">
+                <tr class="event-list" th:each="event : ${events}">
+                    <td style="white-space:nowrap" th:text="${#dates.format(event.date, 'MMM dd')}"></td>
+                    <td>
+                        <a class="venue-location" target="_blank"
+                        th:href="@{https://www.google.com/maps/(q=${event.venue.location})}" 
+                        th:text="${event.venue.location}"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>SG - Events</title>
+</head>
+<body>
+    <th:block th:fragment="resultsList">
+        <th:block th:each="event,iterStat : ${events}">
+            <li>
+                <div class="tldate" th:text="${#dates.format(event.date, 'dd/MMM/yyyy')}"></div>
+            </li>
+            <li th:class="${iterStat.odd} ? timeline-inverted">
+                <div class="tl-circ"></div>
+                <div class="timeline-panel thumbnail">
+                    <div class="caption">
+                        <div id="name" th:text="${event.venue.name}"></div>
+                        <table th:unless="${#lists.isEmpty(event.songs)}">
+                            <tr th:each="song : ${event.songs}">
+                                <td><a id="songLink" th:text="${song.name}" th:href="@{/song(name=${song.name})}"></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <img id="picture" th:src="@{'/flyer?eventId='+${event.id}}" />
+                </div>
+            </li>
+        </th:block>
+        <li><a class="jscroll-next" th:href="@{'/events/'+${nextPage}}"></a></li>
+    </th:block>
+</body>
+</html>

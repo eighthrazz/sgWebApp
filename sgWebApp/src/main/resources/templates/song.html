@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<link rel="stylesheet" type="text/css" href="css/song.css" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="css/bootstrap.min.css" />
+<title th:text="${song.name}"></title>
+</head>
+<body class="container-fluid">
+	<div id="name" th:text="${song.name}"></div>
+	<ul class="list-group">
+		<li class="list-group-item">
+			<span class="badge" th:text="${songStat.count}"></span> 
+			Count
+		</li>
+		<li class="list-group-item">
+			<span class="badge" th:text="${songStat.rank}"></span> 
+			Rank
+		</li>
+	</ul>
+</body>
+</html>

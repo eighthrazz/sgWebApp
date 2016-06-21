@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Posts</title>
+</head>
+<body>
+    <th:block th:fragment="resultList">
+        <th:block th:each="post,iterStat : ${posts}">
+            <div class="panel panel-default">
+                <div class="panel-heading" th:onclick="'window.open(\'' +${post.link}+ '\');'">
+                    <div class="panel-title pull-left post-date post-font"
+                        th:text="${#dates.format(post.date, 'MMM dd')}"></div>
+                    <div class="pull-right">
+                        <i class="fa fa-lg fa-facebook" th:if="${post.type == T(com.razz.model.Post.Type).facebook}"></i>
+                        <i class="fa fa-lg fa-twitter" th:if="${post.type == T(com.razz.model.Post.Type).twitter}"></i>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-body" th:onclick="'window.open(\'' +${post.link}+ '\');'">
+                    <div class="post-image">
+                        <img th:if="${post.imageUrl}" th:src="${post.imageUrl}" />
+                    </div>
+                    <div class="post-message post-font" th:text="${post.message}">
+                    </div>
+                </div>
+            </div>
+        </th:block>
+        <a class="jscroll-next" th:if="${lastPage} > ${nextPage}" th:href="@{'/posts/'+${nextPage}}"></a>
+    </th:block>
+</body>
+</html>
